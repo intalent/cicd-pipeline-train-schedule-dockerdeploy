@@ -9,15 +9,19 @@ pipeline {
             }
         }
         
-        Stage ('Build docker Image') {
+        Stage ('Build docker Image')
+        {
             when
             {
                 branch 'master'
             }
-            steps {
-                script {
+            steps 
+            {
+                script 
+                {
                     app=docker.build("harinarne/train-schedule")
-                    app.inside{
+                    app.inside
+                    {
                         sh 'echo $(curl localhost:8080)'
                     }
                 }
